@@ -10,17 +10,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        {children}
+      <head>
+        {/* ✅ Google AdSense Verification Meta */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-2479836262167230"
+        />
 
-        {/* Google AdSense Script */}
+        {/* ✅ Google AdSense Script (required in <head> for verification) */}
         <Script
-          id="adsense-script"
-          strategy="afterInteractive"
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2479836262167230"
           crossOrigin="anonymous"
-          async
+          strategy="beforeInteractive"
         />
+      </head>
+      <body>
+        {children}
 
         {/* Monetag Script */}
         <Script
